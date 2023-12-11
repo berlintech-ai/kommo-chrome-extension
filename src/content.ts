@@ -1,12 +1,40 @@
-import Root from "./components/content/Root.svelte";
+import Root from './components/content/Root.svelte';
+import Loader from './components/content/Loader.svelte';
 
 const load = () => {
-  const root = document.querySelector(".notes-wrapper__notes.js-notes");
-  if (!root) return;
-  if (root.querySelector("#bta-inegration")) return;
+  const events = document.querySelector('.notes-wrapper__notes.js-notes');
+  const root = document.querySelector('.notes-wrapper__online');
+  console.log('load', root);
 
-  new Root({
+  if (!root) return;
+
+  let loader = null as Loader | null;
+  const loaderEl = root.querySelector('#bta-loader');
+  // remove old integration
+  if (root.querySelector('#bta-inegration')) {
+    console.log('remove old integration');
+    root.querySelector('#bta-inegration')?.remove();
+    loaderEl?.remove();
+  }
+
+  loader = new Loader({
     target: root,
+  });
+
+  const app = new Root({
+    target: root,
+    props: {
+      callback: (user: any) => {
+        loader?.$destroy();
+
+        if (!user || !events) return;
+
+        setTimeout(() => {
+          console.log('observe root');
+          observer.observe(events, config);
+        }, 1000);
+      },
+    },
   });
 };
 
@@ -18,8 +46,38 @@ setTimeout(() => {
 // https://stackoverflow.com/questions/41171813/how-to-detect-url-change-in-the-current-tab-from-a-chrome-extension
 
 chrome.runtime.onMessage.addListener(function (request) {
-  if (request.message === "urlChange") {
-    console.log("urlChange");
-    load();
+  if (request.message === 'urlChange') {
+    console.log('urlChange');
+
+    setTimeout(() => {
+      load();
+    }, 500);
   }
 });
+
+const debounce = (func: any, wait: number) => {
+  let timeout: any;
+  return function (...args: any[]) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func(...args);
+    }, wait);
+  };
+};
+
+const debounceLoad = debounce(load, 500);
+
+// watch root children change
+const observer = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    if (mutation.addedNodes.length) {
+      console.log('addedNodes', mutation.addedNodes.length);
+
+      console.log('disconnect');
+      observer.disconnect();
+      debounceLoad();
+    }
+  });
+});
+
+const config = { attributes: false, childList: true, subtree: true };
