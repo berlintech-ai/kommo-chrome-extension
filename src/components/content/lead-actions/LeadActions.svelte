@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import { onMount } from 'svelte';
   import InitialCall from './InitialCall.svelte';
   import type { Lead } from '../../../lib/types';
@@ -6,7 +6,6 @@
   export let lead: Lead | null = null;
 
   $: stage = 'New Leads';
-
 
   onMount(async () => {
     // https://subscriptionberlintechai.kommo.com/leads/detail/9781682?tab_id=statistic
@@ -22,20 +21,22 @@
   });
 </script>
 
-{#if stage === "New Leads" || stage === "Initial call"}
-  <div class='p-4 pt-2 w-full rounded shadow bg-secondary  text-secondary-foreground'>
+{#if stage === 'New Leads' || stage === 'Initial call'}
+  <div
+    class="w-[96%] p-4 pt-2 border border-black rounded shadow-md shadow-black bg-slate-50"
+  >
     <InitialCall {lead} />
   </div>
 {/if}
 
-{#if stage === "Verification"}
-  <div class='p-4 pt-2 w-full rounded shadow bg-secondary  text-secondary-foreground'>
+{#if stage === 'Verification'}
+  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <p>Placeholder for Verification</p>
   </div>
 {/if}
 
-{#if stage === "Contract signing"}
-  <div class='p-4 pt-2 w-full rounded shadow bg-secondary text-secondary-foreground'>
+{#if stage === 'Contract signing'}
+  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <p>Placeholder for Contract Signing</p>
   </div>
 {/if}

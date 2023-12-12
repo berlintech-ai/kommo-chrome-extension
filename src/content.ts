@@ -11,9 +11,9 @@ const load = () => {
   let loader = null as Loader | null;
   const loaderEl = root.querySelector('#bta-loader');
   // remove old integration
-  if (root.querySelector('#bta-inegration')) {
+  if (root.querySelector('#bta-integration')) {
     console.log('remove old integration');
-    root.querySelector('#bta-inegration')?.remove();
+    root.querySelector('#bta-integration')?.remove();
     loaderEl?.remove();
   }
 
@@ -30,7 +30,7 @@ const load = () => {
         if (!user || !events) return;
 
         setTimeout(() => {
-          console.log('observe root');
+          // console.log('observe root');
           observer.observe(events, config);
         }, 1000);
       },
@@ -71,9 +71,7 @@ const debounceLoad = debounce(load, 500);
 const observer = new MutationObserver(function (mutations) {
   mutations.forEach(function (mutation) {
     if (mutation.addedNodes.length) {
-      console.log('addedNodes', mutation.addedNodes.length);
-
-      console.log('disconnect');
+      // console.log('disconnect');
       observer.disconnect();
       debounceLoad();
     }

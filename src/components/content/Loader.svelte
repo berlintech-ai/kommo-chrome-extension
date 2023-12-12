@@ -1,4 +1,3 @@
-<div class='text-secondary-foreground bg-secondary p-4 rounded shadow animate-pulse font-semibold text-center w-full'
-     id='bta-loader'>
+<div class="w-full p-4 font-semibold text-center animate-pulse" id="bta-loader">
   Loading actions...
 </div>

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { supabase } from "./lib/supabase";
-  import type { User } from "@supabase/supabase-js";
-  import { cn } from "./lib/utils";
+  import { onMount } from 'svelte';
+  import { supabase } from './lib/supabase';
+  import type { User } from '@supabase/supabase-js';
+  import { cn } from './lib/utils';
 
   // get user data
   $: user = null as User | null;
@@ -11,8 +11,8 @@
 
   const handleSubmit = async (event: SubmitEvent) => {
     const formData = new FormData(event.target as HTMLFormElement);
-    const email = formData.get("email") as string;
-    const password = formData.get("password") as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
 
     // set loading state
     loading = true;
@@ -36,8 +36,8 @@
   };
 
   onMount(async () => {
-    chrome.storage.sync.get(["user"], (result) => {
-      console.log("Value currently is " + result.user);
+    chrome.storage.sync.get(['user'], result => {
+      console.log('Value currently is ' + result.user);
       user = result.user;
     });
   });
@@ -51,7 +51,7 @@
     </p>
 
     <form
-      class={cn("flex flex-col mt-4 space-y-4", loading && "animate-pulse")}
+      class={cn('flex flex-col mt-4 space-y-4', loading && 'animate-pulse')}
       on:submit|preventDefault={handleSubmit}
     >
       <input
@@ -83,7 +83,7 @@
       </button>
     </form>
   {:else}
-    <h1 class="text-lg font-semibold">Welcome back, {user.email}</h1>
+    <h1 class="text-lg font-semibold">Welcome back, {user?.email}</h1>
     <p class="opacity-80">You are now signed in to the extension.</p>
 
     <div>
@@ -92,7 +92,7 @@
         class="w-full py-1 mt-4 rounded bg-primary text-primary-foreground"
         on:click={() => {
           supabase.auth.signOut();
-          chrome.storage.sync.remove(["user"]);
+          chrome.storage.sync.remove(['user']);
           user = null;
         }}
       >
