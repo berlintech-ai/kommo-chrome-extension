@@ -1,8 +1,8 @@
 <script lang="ts">
   import {
-    Calendar,
     CameraIcon,
     Clock,
+    PhoneCall,
     PhoneForwarded,
     PhoneMissed,
     PhoneOff,
@@ -56,11 +56,9 @@
 </script>
 
 {#if lead && !loading}
-  <p class="text-xl font-semibold text-black">
-    What was the result of the call?
-  </p>
+  <p class="text-xl font-semibold text-black">Ready to call?</p>
   <p class="text-sm text-black">
-    This will do some magic and update the lead status
+    Let's update the stage to "Initial call" and get started.
   </p>
 
   <div
@@ -69,61 +67,12 @@
     <div />
     <button
       on:click={() => {
-        postCallResult('to_meeting');
+        postCallResult('to_initial_call');
       }}
       class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
     >
-      <Calendar class="inline-block w-3 h-3 mr-1" />
-      Ready for meeting
-    </button>
-    <button
-      on:click={() => {
-        postCallResult('not_interested');
-      }}
-      class="flex items-center px-2 py-1 bg-red-500 border rounded shadow text-primary-foreground"
-    >
-      <UserX class="inline-block w-3 h-3 mr-1" />
-      Not interested
-    </button>
-    <div class="flex-1" />
-
-    <button
-      on:click={() => {
-        postCallResult('no_answer');
-      }}
-      class="flex items-center px-2 py-1 border rounded shadow bg-slate-200 text-secondary-foreground bg-secondary"
-    >
-      <PhoneMissed class="inline-block w-3 h-3 mr-1" />
-      No answer
-    </button>
-
-    <button
-      on:click={() => {
-        postCallResult('needs_info');
-      }}
-      class="flex items-center px-2 py-1 border rounded shadow bg-slate-200 text-secondary-foreground bg-accent"
-    >
-      <PhoneForwarded class="inline-block w-3 h-3 mr-1" />
-      Needs info
-    </button>
-    <button
-      on:click={() => {
-        postCallResult('needs_time');
-      }}
-      class="flex items-center px-2 py-1 border rounded shadow bg-slate-200 text-secondary-foreground bg-accent"
-    >
-      <Clock class="inline-block w-3 h-3 mr-1" />
-      Needs time
-    </button>
-
-    <button
-      on:click={() => {
-        postCallResult('invalid_number');
-      }}
-      class="flex items-center px-2 py-1 bg-orange-400 border rounded shadow text-primary-foreground"
-    >
-      <PhoneOff class="inline-block w-3 h-3 mr-1" />
-      Invalid number
+      <PhoneCall class="inline-block w-3 h-3 mr-1" />
+      Move to "Initial call"
     </button>
   </div>
 {/if}

@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import InitialCall from './InitialCall.svelte';
   import type { Lead } from '../../../lib/types';
+  import NewLead from './NewLead.svelte';
+  import Engagement from './Engagement.svelte';
 
   export let lead: Lead | null = null;
 
@@ -21,7 +23,13 @@
   });
 </script>
 
-{#if stage === 'New Leads' || stage === 'Initial call'}
+{#if stage === 'New Leads'}
+  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+    <NewLead {lead} />
+  </div>
+{/if}
+
+{#if stage === 'Initial call'}
   <div
     class="w-[96%] p-4 pt-2 border border-black rounded shadow-md shadow-black bg-slate-50"
   >
@@ -29,14 +37,22 @@
   </div>
 {/if}
 
-{#if stage === 'Verification'}
+<!-- {#if stage === 'Engagement'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
-    <p>Placeholder for Verification</p>
+    <Engagement {lead} />
   </div>
-{/if}
+{/if} -->
+
+<!-- {#if stage === 'Meeting'}
+  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+    <Engagement {lead} />
+  </div>
+{/if} -->
+
+<!-- 
 
 {#if stage === 'Contract signing'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <p>Placeholder for Contract Signing</p>
   </div>
-{/if}
+{/if} -->
