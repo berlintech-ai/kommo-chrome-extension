@@ -3,6 +3,7 @@
   import InitialCall from './InitialCall.svelte';
   import type { Lead } from '../../../lib/types';
   import NewLead from './NewLead.svelte';
+  import Signing from './Signing.svelte';
   import Engagement from './Engagement.svelte';
 
   export let lead: Lead | null = null;
@@ -36,7 +37,12 @@
     <InitialCall {lead} />
   </div>
 {/if}
-
+<!-- 
+{#if stage === 'Contract signing'}
+  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+    <Signing {lead} />
+  </div>
+{/if} -->
 <!-- {#if stage === 'Engagement'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Engagement {lead} />
@@ -50,9 +56,4 @@
 {/if} -->
 
 <!-- 
-
-{#if stage === 'Contract signing'}
-  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
-    <p>Placeholder for Contract Signing</p>
-  </div>
-{/if} -->
+ -->

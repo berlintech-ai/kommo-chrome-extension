@@ -1,0 +1,96 @@
+<script lang="ts">
+  import { PhoneCall } from 'lucide-svelte';
+  import type { Lead } from '../../../lib/types';
+  import { apiUrl } from '../../../lib/utils';
+
+  export let lead = null as Lead | null;
+
+  $: loading = false;
+  $: error = null as string | null;
+  $: message = null as string | null;
+
+  const postCallResult = async (status: string) => {
+    if (!lead) return;
+
+    loading = true;
+
+    fetch(`https://hook.eu2.make.com/dvpjt26bt8ar4kw1kqy8o2petm9yw8n1`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        status,
+        lead_id: lead.lead_id,
+        contact_id: lead.contact_id,
+        email: lead?.email,
+        name: lead.name,
+        responsible_user_id: lead.responsible_user_id,
+        responsible_user_name: lead.responsible_user_name,
+      }),
+    })
+      .then(async res => {
+        console.log('Call updated', res);
+        message = 'Call result updated';
+      })
+      .catch(err => {
+        error = err.message;
+      })
+      .finally(() => {
+        loading = false;
+        setTimeout(() => {
+          error = null;
+          message = null;
+        }, 2000);
+      });
+  };
+
+  $: {
+    console.log({ message });
+  }
+</script>
+
+{#if lead && !loading}
+  <p class="text-xl font-semibold text-black">Ready to sign?</p>
+  <p class="text-sm text-black">
+    Let's send the contract to <span class="font-semibold">{lead.name}</span> and
+    payment link.
+  </p>
+
+  <div
+    class="flex flex-wrap w-full -mx-2 space-x-2 space-y-2 text-xs font-medium"
+  >
+    <div />
+    <button
+      on:click={() => {
+        postCallResult('send_contract');
+      }}
+      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
+    >
+      <PhoneCall class="inline-block w-3 h-3 mr-1" />
+      Send contract
+    </button>
+  </div>
+{/if}
+
+{#if loading}
+  <div
+    class="flex items-center justify-center w-full h-full pt-2 text-lg font-semibold animate-pulse"
+  >
+    Doing the magic 🪄
+  </div>
+{/if}
+
+{#if error}
+  <div class="w-full p-4 pt-2 bg-red-500 border rounded shadow-md">
+    <p class="text-lg font-semibold text-white">Error</p>
+    <p class="text-sm text-white">{error}</p>
+  </div>
+{/if}
+
+{#if message}
+  <div class="w-full p-4 pt-2 bg-green-500 border rounded shadow-md">
+    <p class="text-lg font-semibold text-white">Success</p>
+    <p class="text-sm text-white">{message}</p>
+  </div>
+{/if}
