@@ -37,12 +37,12 @@
     <InitialCall {lead} />
   </div>
 {/if}
-<!-- 
+
 {#if stage === 'Contract signing'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Signing {lead} />
   </div>
-{/if} -->
+{/if}
 <!-- {#if stage === 'Engagement'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Engagement {lead} />
