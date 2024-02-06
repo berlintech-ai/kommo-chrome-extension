@@ -14,7 +14,7 @@
 
     loading = true;
 
-    fetch(`${apiUrl}/call-result`, {
+    fetch(`https://hook.eu2.make.com/mqh5657kmuehhwrrffnn7ukhi2jvvl9i`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
