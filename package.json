@@ -1,11 +1,11 @@
 {
   "name": "kommo-sales-extension",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite dev",
-    "build": "vite build",
+    "build": "vite build && ./pack-extension.sh",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "gen:types": "supabase gen types typescript --project-id jgfbegibwarfqlnawauk > ./src/lib/database.types.ts"

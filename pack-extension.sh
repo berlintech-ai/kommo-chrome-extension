@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Bump patch version
 npm version patch
 

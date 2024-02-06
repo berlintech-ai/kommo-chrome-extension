@@ -1,7 +1,6 @@
 <script lang="ts">
   import { PhoneCall } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
-  import { apiUrl } from '../../../lib/utils';
 
   export let lead = null as Lead | null;
 
