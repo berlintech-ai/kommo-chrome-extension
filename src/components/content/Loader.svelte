@@ -1,3 +1,3 @@
-<div class="w-full p-4 font-semibold text-center animate-pulse" id="bta-loader">
+<div class="w-full p-4 font-semibold animate-pulse" id="bta-loader">
   Loading actions...
 </div>

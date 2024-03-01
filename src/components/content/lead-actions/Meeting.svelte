@@ -69,22 +69,20 @@
 
 {#if loading}
   <div
-    class="flex items-center justify-center w-full h-full pt-2 text-lg font-semibold animate-pulse"
+    class="flex items-center justify-center w-full h-full mt-2 text-lg font-semibold animate-pulse"
   >
     Doing the magic 🪄
   </div>
 {/if}
 
 {#if error}
-  <div class="w-full p-4 pt-2 bg-red-500 border rounded shadow-md">
-    <p class="text-lg font-semibold text-white">Error</p>
-    <p class="text-sm text-white">{error}</p>
+  <div class="w-[90%] p-4 mt-2 bg-red-500 border rounded shadow-md">
+    <p class="text-lg font-semibold text-white">Error: {error}</p>
   </div>
 {/if}
 
 {#if message}
-  <div class="w-full p-4 pt-2 bg-green-500 border rounded shadow-md">
-    <p class="text-lg font-semibold text-white">Success</p>
-    <p class="text-sm text-white">{message}</p>
+  <div class="w-[90%] p-4 mt-2 bg-green-500 border rounded shadow-md">
+    <p class="text-lg font-semibold text-white">Success: {message}</p>
   </div>
 {/if}

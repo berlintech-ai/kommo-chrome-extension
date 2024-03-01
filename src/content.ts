@@ -12,7 +12,7 @@ const load = () => {
   const loaderEl = root.querySelector('#bta-loader');
   // remove old integration
   if (root.querySelector('#bta-integration')) {
-    console.log('remove old integration');
+    console.log('remove old integration 1');
     root.querySelector('#bta-integration')?.remove();
     loaderEl?.remove();
   }
@@ -24,10 +24,10 @@ const load = () => {
   const app = new Root({
     target: root,
     props: {
-      callback: (user: any) => {
+      callback: () => {
         loader?.$destroy();
 
-        if (!user || !events) return;
+        if (!events) return;
 
         setTimeout(() => {
           // console.log('observe root');

@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const apiUrl = import.meta.env.DEV
-  ? 'http://localhost:3000'
+  ? 'http://localhost:3001'
   : 'https://kommo-automations.apps.berlintech.ai';

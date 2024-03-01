@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PhoneCall } from 'lucide-svelte';
+  import { PhoneCall, RefreshCcw } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
 
   export let lead = null as Lead | null;
@@ -21,11 +21,6 @@
       body: JSON.stringify({
         status,
         lead_id: lead.lead_id,
-        contact_id: lead.contact_id,
-        email: lead?.email,
-        name: lead.name,
-        responsible_user_id: lead.responsible_user_id,
-        responsible_user_name: lead.responsible_user_name,
       }),
     })
       .then(async res => {
@@ -69,27 +64,34 @@
       <PhoneCall class="inline-block w-3 h-3 mr-1" />
       Send contract
     </button>
+    <button
+      on:click={() => {
+        postCallResult('regenerate_contract');
+      }}
+      class="flex items-center px-2 py-1 font-semibold text-white bg-red-600 border rounded shadow"
+    >
+      <RefreshCcw class="inline-block w-3 h-3 mr-1" />
+      Generate new contract
+    </button>
   </div>
 {/if}
 
 {#if loading}
   <div
-    class="flex items-center justify-center w-full h-full pt-2 text-lg font-semibold animate-pulse"
+    class="flex items-center justify-center w-full h-full mt-2 text-lg font-semibold animate-pulse"
   >
     Doing the magic 🪄
   </div>
 {/if}
 
 {#if error}
-  <div class="w-full p-4 pt-2 bg-red-500 border rounded shadow-md">
-    <p class="text-lg font-semibold text-white">Error</p>
-    <p class="text-sm text-white">{error}</p>
+  <div class="w-[90%] p-4 mt-2 bg-red-500 border rounded shadow-md">
+    <p class="text-lg font-semibold text-white">Error: {error}</p>
   </div>
 {/if}
 
 {#if message}
-  <div class="w-full p-4 pt-2 bg-green-500 border rounded shadow-md">
-    <p class="text-lg font-semibold text-white">Success</p>
-    <p class="text-sm text-white">{message}</p>
+  <div class="w-[90%] p-4 mt-2 bg-green-500 border rounded shadow-md">
+    <p class="text-lg font-semibold text-white">Success: {message}</p>
   </div>
 {/if}
