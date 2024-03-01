@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { PhoneCall, RefreshCcw } from 'lucide-svelte';
+  import {
+    ExternalLink,
+    Link,
+    Link2,
+    PhoneCall,
+    RefreshCcw,
+  } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
 
   export let lead = null as Lead | null;
@@ -73,6 +79,15 @@
       <RefreshCcw class="inline-block w-3 h-3 mr-1" />
       Generate new contract
     </button>
+    <a
+      href={`https://admin.berlintech.ai/sales/invoice-generator/${lead.lead_id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center px-2 py-1 font-semibold text-white bg-orange-400 border rounded shadow"
+    >
+      <ExternalLink class="inline-block w-3 h-3 mr-1" />
+      Open offer generator
+    </a>
   </div>
 {/if}
 
