@@ -28,6 +28,11 @@
       body: JSON.stringify({
         status,
         lead_id: lead.lead_id,
+        contact_id: lead.contact_id,
+        email: lead?.email,
+        name: lead.name,
+        responsible_user_id: lead.responsible_user_id,
+        responsible_user_name: lead.responsible_user_name,
       }),
     })
       .then(async res => {
