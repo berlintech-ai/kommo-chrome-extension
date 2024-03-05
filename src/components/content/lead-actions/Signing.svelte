@@ -1,5 +1,6 @@
 <script lang="ts">
   import {
+    Eraser,
     ExternalLink,
     Link,
     Link2,
@@ -78,6 +79,15 @@
     >
       <RefreshCcw class="inline-block w-3 h-3 mr-1" />
       Generate new contract
+    </button>
+    <button
+      on:click={() => {
+        postCallResult('reset_custom_quote_fields');
+      }}
+      class="flex items-center px-2 py-1 font-semibold text-black bg-white border rounded shadow"
+    >
+      <Eraser class="inline-block w-3 h-3 mr-1" />
+      Reset custom quote fields
     </button>
     <a
       href={`https://admin.berlintech.ai/sales/invoice-generator/${lead.lead_id}`}
