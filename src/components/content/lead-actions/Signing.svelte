@@ -78,15 +78,6 @@
     </button>
     <button
       on:click={() => {
-        postCallResult('regenerate_contract');
-      }}
-      class="flex items-center px-2 py-1 font-semibold text-white bg-red-600 border rounded shadow"
-    >
-      <RefreshCcw class="inline-block w-3 h-3 mr-1" />
-      Generate new contract
-    </button>
-    <button
-      on:click={() => {
         postCallResult('reset_custom_quote_fields');
       }}
       class="flex items-center px-2 py-1 font-semibold text-black bg-white border rounded shadow"
