@@ -2,6 +2,7 @@
   import {
     Eraser,
     ExternalLink,
+    File,
     Link,
     Link2,
     PhoneCall,
@@ -37,7 +38,7 @@
     })
       .then(async res => {
         console.log('Call updated', res);
-        // message = 'Call result updated';
+        // message = 'Angebot sent successfully';
       })
       .catch(err => {
         error = err.message;
@@ -50,17 +51,12 @@
         }, 2000);
       });
   };
-
-  $: {
-    console.log({ message });
-  }
 </script>
 
 {#if lead && !loading}
-  <p class="text-xl font-semibold text-black">Ready to sign?</p>
+  <p class="text-xl font-semibold text-black">Ready to send Angebot?</p>
   <p class="text-sm text-black">
-    Let's send the contract to <span class="font-semibold">{lead.name}</span> and
-    payment link.
+    Let's send the angebot to <span class="font-semibold">{lead.name}</span>
   </p>
 
   <div
@@ -69,31 +65,13 @@
     <div />
     <button
       on:click={() => {
-        postCallResult('send_contract');
+        postCallResult('send_angebot');
       }}
       class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
     >
-      <PhoneCall class="inline-block w-3 h-3 mr-1" />
-      Send contract
+      <File class="inline-block w-3 h-3 mr-1" />
+      Send angebot
     </button>
-    <button
-      on:click={() => {
-        postCallResult('reset_custom_quote_fields');
-      }}
-      class="flex items-center px-2 py-1 font-semibold text-black bg-white border rounded shadow"
-    >
-      <Eraser class="inline-block w-3 h-3 mr-1" />
-      Reset custom quote fields
-    </button>
-    <a
-      href={`https://admin.berlintech.ai/sales/invoice-generator/${lead.lead_id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center px-2 py-1 font-semibold text-white bg-orange-400 border rounded shadow"
-    >
-      <ExternalLink class="inline-block w-3 h-3 mr-1" />
-      Open offer generator
-    </a>
   </div>
 {/if}
 

@@ -5,6 +5,7 @@
   import NewLead from './NewLead.svelte';
   import Signing from './Signing.svelte';
   import Engagement from './Engagement.svelte';
+  import Angebot from './Angebot.svelte';
 
   export let lead: Lead | null = null;
 
@@ -38,11 +39,18 @@
   </div>
 {/if}
 
-{#if stage === 'Contract signing'}
+{#if stage === 'Contract Signing' || stage === 'Contract Preparation'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Signing {lead} />
   </div>
 {/if}
+
+{#if stage === 'Angebot Preparation' || stage === 'Angebot Issuing'}
+  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+    <Angebot {lead} />
+  </div>
+{/if}
+
 <!-- {#if stage === 'Engagement'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Engagement {lead} />
