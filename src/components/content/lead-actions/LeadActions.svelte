@@ -39,13 +39,13 @@
   </div>
 {/if}
 
-{#if stage === 'Contract Signing' || stage === 'Contract Preparation'}
+{#if stage === 'Contract Signing'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Signing {lead} />
   </div>
 {/if}
 
-{#if stage === 'Angebot Preparation' || stage === 'Angebot Issuing'}
+{#if stage === 'Angebot Issuing'}
   <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
     <Angebot {lead} />
   </div>
