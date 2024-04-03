@@ -13,7 +13,7 @@
     const leadId = window.location.href.split('/').pop()?.split('?')[0];
 
     lead = (await (
-      await fetch(`${apiUrl}/get-lead/${leadId}`)
+      await fetch(`${apiUrl}/lead/${leadId}`)
     ).json()) as unknown as Lead;
 
     callback();

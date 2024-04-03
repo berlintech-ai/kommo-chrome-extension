@@ -14,7 +14,7 @@
 
     loading = true;
 
-    fetch(`${apiUrl}/call-result`, {
+    fetch(`${apiUrl}/status-update`, {
       method: 'POST',
       body: JSON.stringify({
         status,

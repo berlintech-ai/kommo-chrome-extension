@@ -56,7 +56,8 @@
 {#if lead && !loading}
   <p class="text-xl font-semibold text-black">Ready to send Angebot?</p>
   <p class="text-sm text-black">
-    Let's send the angebot to <span class="font-semibold">{lead.name}</span>
+    Let's generate the angebot for <span class="font-semibold">{lead.name}</span
+    >
   </p>
 
   <div
@@ -70,7 +71,7 @@
       class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
     >
       <File class="inline-block w-3 h-3 mr-1" />
-      Send angebot
+      Generate angebot
     </button>
   </div>
 {/if}
