@@ -1,13 +1,5 @@
 <script lang="ts">
-  import {
-    Eraser,
-    ExternalLink,
-    File,
-    Link,
-    Link2,
-    PhoneCall,
-    RefreshCcw,
-  } from 'lucide-svelte';
+  import { File } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
 
   export let lead = null as Lead | null;

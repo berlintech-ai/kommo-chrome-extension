@@ -3,6 +3,7 @@
     Calendar,
     CameraIcon,
     Clock,
+    Phone,
     PhoneForwarded,
     PhoneMissed,
     PhoneOff,
@@ -64,25 +65,34 @@
   </p>
 
   <div
-    class="flex flex-wrap w-full -mx-2 space-x-2 space-y-2 text-xs font-medium"
+    class="flex flex-wrap -mx-2 space-x-2 space-y-2 w-full text-xs font-medium"
   >
     <div />
     <button
       on:click={() => {
+        postCallResult('retell_ai');
+      }}
+      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 rounded border shadow"
+    >
+      <Phone class="inline-block mr-1 w-3 h-3" />
+      Retell AI
+    </button>
+    <button
+      on:click={() => {
         postCallResult('to_meeting');
       }}
-      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
+      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 rounded border shadow"
     >
-      <Calendar class="inline-block w-3 h-3 mr-1" />
+      <Calendar class="inline-block mr-1 w-3 h-3" />
       Ready for meeting
     </button>
     <button
       on:click={() => {
         postCallResult('not_interested');
       }}
-      class="flex items-center px-2 py-1 bg-red-500 border rounded shadow text-primary-foreground"
+      class="flex items-center px-2 py-1 bg-red-500 rounded border shadow text-primary-foreground"
     >
-      <UserX class="inline-block w-3 h-3 mr-1" />
+      <UserX class="inline-block mr-1 w-3 h-3" />
       Not interested
     </button>
     <div class="flex-1" />
@@ -91,9 +101,9 @@
       on:click={() => {
         postCallResult('no_answer');
       }}
-      class="flex items-center px-2 py-1 border rounded shadow bg-slate-200 text-secondary-foreground bg-secondary"
+      class="flex items-center px-2 py-1 rounded border shadow bg-slate-200 text-secondary-foreground bg-secondary"
     >
-      <PhoneMissed class="inline-block w-3 h-3 mr-1" />
+      <PhoneMissed class="inline-block mr-1 w-3 h-3" />
       No answer
     </button>
 
@@ -101,18 +111,18 @@
       on:click={() => {
         postCallResult('needs_info');
       }}
-      class="flex items-center px-2 py-1 border rounded shadow bg-slate-200 text-secondary-foreground bg-accent"
+      class="flex items-center px-2 py-1 rounded border shadow bg-slate-200 text-secondary-foreground bg-accent"
     >
-      <PhoneForwarded class="inline-block w-3 h-3 mr-1" />
+      <PhoneForwarded class="inline-block mr-1 w-3 h-3" />
       Needs info
     </button>
     <button
       on:click={() => {
         postCallResult('needs_time');
       }}
-      class="flex items-center px-2 py-1 border rounded shadow bg-slate-200 text-secondary-foreground bg-accent"
+      class="flex items-center px-2 py-1 rounded border shadow bg-slate-200 text-secondary-foreground bg-accent"
     >
-      <Clock class="inline-block w-3 h-3 mr-1" />
+      <Clock class="inline-block mr-1 w-3 h-3" />
       Needs time
     </button>
 
@@ -120,9 +130,9 @@
       on:click={() => {
         postCallResult('invalid_number');
       }}
-      class="flex items-center px-2 py-1 bg-orange-400 border rounded shadow text-primary-foreground"
+      class="flex items-center px-2 py-1 bg-orange-400 rounded border shadow text-primary-foreground"
     >
-      <PhoneOff class="inline-block w-3 h-3 mr-1" />
+      <PhoneOff class="inline-block mr-1 w-3 h-3" />
       Invalid number
     </button>
   </div>
@@ -130,7 +140,7 @@
 
 {#if loading}
   <div
-    class="flex items-center justify-center w-full h-full mt-2 text-lg font-semibold animate-pulse"
+    class="flex justify-center items-center mt-2 w-full h-full text-lg font-semibold animate-pulse"
   >
     Doing the magic 🪄
   </div>

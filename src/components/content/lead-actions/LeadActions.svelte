@@ -26,12 +26,12 @@
 </script>
 
 {#if stage === 'New Leads'}
-  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
     <NewLead {lead} />
   </div>
 {/if}
 
-{#if stage === 'Initial call'}
+{#if stage === 'Initial Call'}
   <div
     class="w-[96%] p-4 pt-2 border border-black rounded shadow-md shadow-black bg-slate-50"
   >
@@ -40,25 +40,25 @@
 {/if}
 
 {#if stage === 'Contract Signing'}
-  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
     <Signing {lead} />
   </div>
 {/if}
 
 {#if stage === 'Angebot Issuing'}
-  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
     <Angebot {lead} />
   </div>
 {/if}
 
 <!-- {#if stage === 'Engagement'}
-  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
     <Engagement {lead} />
   </div>
 {/if} -->
 
 <!-- {#if stage === 'Meeting'}
-  <div class="w-full p-4 pt-2 border rounded shadow-md bg-slate-50">
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
     <Engagement {lead} />
   </div>
 {/if} -->

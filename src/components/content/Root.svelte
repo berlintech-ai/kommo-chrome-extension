@@ -20,25 +20,11 @@
   };
 
   onMount(async () => {
-    chrome.storage.sync.get(['user'], result => {
-      console.log('Value currently is ', result.user?.email);
-      // user = result.user;
-    });
-
-    // watch for changes
-    // chrome.storage.onChanged.addListener((changes, namespace) => {
-    //   for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-    //     if (key === 'user') {
-    //       user = newValue;
-    //     }
-    //   }
-    // });
+    loadLead();
   });
 
   $: {
-    // if (user) {
-    loadLead();
-    // }
+    console.log(lead);
   }
 </script>
 
