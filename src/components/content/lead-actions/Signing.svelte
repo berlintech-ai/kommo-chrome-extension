@@ -2,6 +2,7 @@
   import {
     Eraser,
     ExternalLink,
+    File,
     Link,
     Link2,
     PhoneCall,
@@ -64,42 +65,51 @@
   </p>
 
   <div
-    class="flex flex-wrap w-full -mx-2 space-x-2 space-y-2 text-xs font-medium"
+    class="flex flex-wrap -mx-2 space-x-2 space-y-2 w-full text-xs font-medium"
   >
     <div />
     <button
       on:click={() => {
         postCallResult('send_contract');
       }}
-      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
+      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 rounded border shadow"
     >
-      <PhoneCall class="inline-block w-3 h-3 mr-1" />
+      <File class="inline-block mr-1 w-3 h-3" />
       Send contract
     </button>
     <button
       on:click={() => {
         postCallResult('reset_custom_quote_fields');
       }}
-      class="flex items-center px-2 py-1 font-semibold text-black bg-white border rounded shadow"
+      class="flex items-center px-2 py-1 font-semibold text-black bg-white rounded border shadow"
     >
-      <Eraser class="inline-block w-3 h-3 mr-1" />
+      <Eraser class="inline-block mr-1 w-3 h-3" />
       Reset custom quote fields
     </button>
     <a
       href={`https://admin.berlintech.ai/sales/invoice-generator/${lead.lead_id}`}
       target="_blank"
       rel="noopener noreferrer"
-      class="flex items-center px-2 py-1 font-semibold text-white bg-orange-400 border rounded shadow"
+      class="flex items-center px-2 py-1 font-semibold text-white bg-orange-400 rounded border shadow"
     >
-      <ExternalLink class="inline-block w-3 h-3 mr-1" />
+      <ExternalLink class="inline-block mr-1 w-3 h-3" />
       Open offer generator
     </a>
+    <button
+      on:click={() => {
+        postCallResult('send_contract_test');
+      }}
+      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-900 rounded border shadow"
+    >
+      <File class="inline-block mr-1 w-3 h-3" />
+      Test contract
+    </button>
   </div>
 {/if}
 
 {#if loading}
   <div
-    class="flex items-center justify-center w-full h-full mt-2 text-lg font-semibold animate-pulse"
+    class="flex justify-center items-center mt-2 w-full h-full text-lg font-semibold animate-pulse"
   >
     Doing the magic 🪄
   </div>

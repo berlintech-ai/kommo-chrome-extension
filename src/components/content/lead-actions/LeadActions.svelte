@@ -9,7 +9,7 @@
 
   export let lead: Lead | null = null;
 
-  $: stage = 'New Leads';
+  $: stage = 'New Leads'; 
 
   onMount(async () => {
     // https://subscriptionberlintechai.kommo.com/leads/detail/9781682?tab_id=statistic
