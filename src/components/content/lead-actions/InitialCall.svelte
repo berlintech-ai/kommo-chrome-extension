@@ -68,7 +68,7 @@
     class="flex flex-wrap -mx-2 space-x-2 space-y-2 w-full text-xs font-medium"
   >
     <div />
-    <button
+    <!-- <button
       on:click={() => {
         postCallResult('retell_ai');
       }}
@@ -76,7 +76,7 @@
     >
       <Phone class="inline-block mr-1 w-3 h-3" />
       Retell AI
-    </button>
+    </button> -->
     <button
       on:click={() => {
         postCallResult('to_meeting');
