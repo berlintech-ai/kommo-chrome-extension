@@ -6,10 +6,11 @@
   import Signing from './Signing.svelte';
   import Engagement from './Engagement.svelte';
   import Angebot from './Angebot.svelte';
+  import Email from './Email.svelte';
 
   export let lead: Lead | null = null;
 
-  $: stage = 'New Leads'; 
+  $: stage = 'New Leads';
 
   onMount(async () => {
     // https://subscriptionberlintechai.kommo.com/leads/detail/9781682?tab_id=statistic
@@ -51,17 +52,51 @@
   </div>
 {/if}
 
-<!-- {#if stage === 'Engagement'}
+{#if stage === 'Engagement'}
   <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
     <Engagement {lead} />
   </div>
-{/if} -->
+{/if}
 
-<!-- {#if stage === 'Meeting'}
+{#if stage === 'Contract Preparation'}
   <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
-    <Engagement {lead} />
+    <Email {lead} />
   </div>
-{/if} -->
+{/if}
+
+{#if stage === 'Payment'}
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
+    <Email {lead} />
+  </div>
+{/if}
+
+{#if stage === 'Meeting'}
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
+    <Email {lead} />
+  </div>
+{/if}
+{#if stage === 'Angebot Preparation'}
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
+    <Email {lead} />
+  </div>
+{/if}
+
+{#if stage === 'Gutschein Issuing'}
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
+    <Email {lead} />
+  </div>
+{/if}
+
+{#if stage === 'Closed - won'}
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
+    <Email {lead} />
+  </div>
+{/if}
+{#if stage === 'Closed - lost'}
+  <div class="p-4 pt-2 w-full rounded border shadow-md bg-slate-50">
+    <Email {lead} />
+  </div>
+{/if}
 
 <!-- 
  -->

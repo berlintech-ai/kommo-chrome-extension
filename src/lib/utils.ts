@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const apiUrl = import.meta.env.DEV
-  ? 'http://localhost:3001/chrome-extension'
-  : 'https://kommo-automations.apps.berlintech.ai/chrome-extension';
+  ? 'http://localhost:3000/api/chrome-extension'
+  : 'https://admin.berlintech.ai/api/chrome-extension';

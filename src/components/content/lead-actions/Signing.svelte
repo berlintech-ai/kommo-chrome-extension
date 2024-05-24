@@ -5,10 +5,12 @@
     File,
     Link,
     Link2,
+    Mail,
     PhoneCall,
     RefreshCcw,
   } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
+  import EmailLink from './EmailLink.svelte';
 
   export let lead = null as Lead | null;
 
@@ -68,6 +70,7 @@
     class="flex flex-wrap -mx-2 space-x-2 space-y-2 w-full text-xs font-medium"
   >
     <div />
+    <EmailLink {lead} />
     <button
       on:click={() => {
         postCallResult('send_contract');
@@ -76,15 +79,6 @@
     >
       <File class="inline-block mr-1 w-3 h-3" />
       Send contract
-    </button>
-    <button
-      on:click={() => {
-        postCallResult('reset_custom_quote_fields');
-      }}
-      class="flex items-center px-2 py-1 font-semibold text-black bg-white rounded border shadow"
-    >
-      <Eraser class="inline-block mr-1 w-3 h-3" />
-      Reset custom quote fields
     </button>
     <a
       href={`https://admin.berlintech.ai/sales/invoice-generator/${lead.lead_id}`}
@@ -103,6 +97,15 @@
     >
       <File class="inline-block mr-1 w-3 h-3" />
       Test contract
+    </button>
+    <button
+      on:click={() => {
+        postCallResult('reset_custom_quote_fields');
+      }}
+      class="flex items-center px-2 py-1 font-semibold text-black bg-white rounded border shadow"
+    >
+      <Eraser class="inline-block mr-1 w-3 h-3" />
+      Reset custom quote fields
     </button>
   </div>
 {/if}

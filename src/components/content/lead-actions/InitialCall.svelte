@@ -11,6 +11,7 @@
   } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
   import { apiUrl } from '../../../lib/utils';
+  import EmailLink from './EmailLink.svelte';
 
   export let lead = null as Lead | null;
 
@@ -68,6 +69,7 @@
     class="flex flex-wrap -mx-2 space-x-2 space-y-2 w-full text-xs font-medium"
   >
     <div />
+    <EmailLink {lead} />
     <!-- <button
       on:click={() => {
         postCallResult('retell_ai');

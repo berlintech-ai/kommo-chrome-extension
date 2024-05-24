@@ -1,6 +1,7 @@
 <script lang="ts">
   import { File } from 'lucide-svelte';
   import type { Lead } from '../../../lib/types';
+  import EmailLink from './EmailLink.svelte';
 
   export let lead = null as Lead | null;
 
@@ -53,16 +54,18 @@
   </p>
 
   <div
-    class="flex flex-wrap w-full -mx-2 space-x-2 space-y-2 text-xs font-medium"
+    class="flex flex-wrap -mx-2 space-x-2 space-y-2 w-full text-xs font-medium"
   >
     <div />
+
+    <EmailLink {lead} />
     <button
       on:click={() => {
         postCallResult('send_angebot');
       }}
-      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 border rounded shadow"
+      class="flex items-center px-2 py-1 font-semibold text-white bg-blue-600 rounded border shadow"
     >
-      <File class="inline-block w-3 h-3 mr-1" />
+      <File class="inline-block mr-1 w-3 h-3" />
       Generate angebot
     </button>
   </div>
@@ -70,7 +73,7 @@
 
 {#if loading}
   <div
-    class="flex items-center justify-center w-full h-full mt-2 text-lg font-semibold animate-pulse"
+    class="flex justify-center items-center mt-2 w-full h-full text-lg font-semibold animate-pulse"
   >
     Doing the magic 🪄
   </div>
