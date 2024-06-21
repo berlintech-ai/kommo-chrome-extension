@@ -70,7 +70,7 @@
   >
     <div />
     <EmailLink {lead} />
-    <!-- <button
+    <button
       on:click={() => {
         postCallResult('retell_ai');
       }}
@@ -78,7 +78,7 @@
     >
       <Phone class="inline-block mr-1 w-3 h-3" />
       Retell AI
-    </button> -->
+    </button>
     <button
       on:click={() => {
         postCallResult('to_meeting');
