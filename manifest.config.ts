@@ -12,7 +12,9 @@ const [major, minor, patch, label = '0'] = version
 export default defineManifest(async env => ({
   manifest_version: 3,
   name:
-    env.mode === 'staging' ? '[INTERNAL] BerlinTech Kommo' : 'BerlinTech Kommo',
+    env.mode === 'production'
+      ? 'BerlinTech Kommo'
+      : '[INTERNAL] BerlinTech Kommo',
   // up to four numbers separated by dots
   version: `${major}.${minor}.${patch}.${label}`,
   // semver is OK in "version_name"

@@ -15,13 +15,13 @@
   "content_scripts": [
     {
       "js": [
-        "assets/content.ts-loader.js"
+        "assets/content.ts-loader-13bbd2d1.js"
       ],
       "matches": [
         "https://subscriptionberlintechai.kommo.com/*"
       ],
       "css": [
-        "assets/content.css"
+        "assets/content-0a0f3aae.css"
       ]
     }
   ],
@@ -35,8 +35,8 @@
         "https://subscriptionberlintechai.kommo.com/*"
       ],
       "resources": [
-        "assets/utils.js",
-        "assets/content.ts.js"
+        "assets/utils-8bea1bed.js",
+        "assets/content.ts-1d950989.js"
       ],
       "use_dynamic_url": true
     }
